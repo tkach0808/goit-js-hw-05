@@ -2,7 +2,7 @@
 
 /* eslint-disable */
 class Car {
-  constructor({ speed, price, maxSpeed, isOn, distance = 0 }) {
+  constructor({ speed = 0, price, maxSpeed, isOn, distance = 0 }) {
     this.speed = speed;
     this._price = price;
     this.maxSpeed = maxSpeed;
@@ -39,8 +39,8 @@ class Car {
   }
 
   accelerate(value) {
-    if (value <= this.maxSpeed) {
-      this.speed = value;
+    if (this.speed + value <= this.maxSpeed) {
+      this.speed += value;
     }
   }
 
